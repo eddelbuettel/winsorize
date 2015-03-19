@@ -5,3 +5,4 @@
 	* .travis.yml: Added
 	* .gitignore: Added
 
+	* README.md: Added with usual Travis and license shields
