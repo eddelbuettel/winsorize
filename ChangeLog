@@ -1,0 +1,7 @@
+2015-03-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Version 0.0.1 based on robustHD 0.5.0
+
+	* .travis.yml: Added
+	* .gitignore: Added
+
