@@ -149,8 +149,8 @@ winsorize.matrix <- function(x, standardized = FALSE, centerFun = median,
       scale <- attr(x, "scale")
     }
     ## compute correlation matrix (call C++ function)
-    R <- .Call("R_corMatHuber", R_x=x, R_c=const, R_prob=prob, R_tol=tol, 
-               PACKAGE="winsorize")
+    #R <- .Call("R_corMatHuber", R_x=x, R_c=const, R_prob=prob, R_tol=tol, PACKAGE="winsorize")
+    R <- corMatHuber(x, const, prob, tol)
     # check if correlation matrix is positive definite and perform 
     # corrections if necessary
     eig <- eigen(R, symmetric=TRUE)

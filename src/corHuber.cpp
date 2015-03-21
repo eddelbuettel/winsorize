@@ -195,6 +195,7 @@ SEXP R_corHuberBi(SEXP R_x, SEXP R_y, SEXP R_c, SEXP R_prob, SEXP R_tol) {
 }
 
 // robust correlation matrix based on bivariate winsorization
+// [[Rcpp::export]]
 mat corMatHuber(const mat& x, const double& c,
 		const double& prob, const double& tol) {
 	const uword p = x.n_cols;
@@ -211,14 +212,14 @@ mat corMatHuber(const mat& x, const double& c,
 	return R;
 }
 
-// R interface to corMatHuber()
-SEXP R_corMatHuber(SEXP R_x, SEXP R_c, SEXP R_prob, SEXP R_tol) {
-	// convert data to Rcpp types
-	NumericMatrix Rcpp_x(R_x);
-	mat x(Rcpp_x.begin(), Rcpp_x.rows(), Rcpp_x.cols(), false);	// reuse memory
-	double c = as<double>(R_c);
-	double prob = as<double>(R_prob);
-	double tol = as<double>(R_tol);
-	// call arma version and wrap result
-	return wrap(corMatHuber(x, c, prob, tol));
-}
+// // R interface to corMatHuber()
+// SEXP R_corMatHuber(SEXP R_x, SEXP R_c, SEXP R_prob, SEXP R_tol) {
+// 	// convert data to Rcpp types
+// 	NumericMatrix Rcpp_x(R_x);
+// 	mat x(Rcpp_x.begin(), Rcpp_x.rows(), Rcpp_x.cols(), false);	// reuse memory
+// 	double c = as<double>(R_c);
+// 	double prob = as<double>(R_prob);
+// 	double tol = as<double>(R_tol);
+// 	// call arma version and wrap result
+// 	return wrap(corMatHuber(x, c, prob, tol));
+// }
