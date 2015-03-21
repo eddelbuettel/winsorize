@@ -108,7 +108,7 @@ corHuber <- function(x, y, type = c("bivariate", "adjusted", "univariate"),
   ## compute robust correlation according to winsorization type
   switch(type, 
          bivariate=corHuberBi(x, y, const, prob=prob, tol=tol),
-         adjusted=corHuberAdj(x, y, const=const),
+         adjusted=corHuberAdj(x, y, const),
          univariate=corHuberUni(x, y, const=const))
 }
 
@@ -123,11 +123,11 @@ corHuber <- function(x, y, type = c("bivariate", "adjusted", "univariate"),
 ##         PACKAGE="winsorize")
 ## }
 
-# robust correlation based on adjusted univariate winsorization
-corHuberAdj <- function(x, y, const = 2) {
-  # call C++ function
-  .Call("R_corHuberAdj", R_x=x, R_y=y, R_c=const, PACKAGE="winsorize")
-}
+## # robust correlation based on adjusted univariate winsorization
+## corHuberAdj <- function(x, y, const = 2) {
+##   # call C++ function
+##   .Call("R_corHuberAdj", R_x=x, R_y=y, R_c=const, PACKAGE="winsorize")
+## }
 
 # robust correlation based on univariate winsorization
 # with barebones Pearson correlation, C++ code is slightly faster than R code

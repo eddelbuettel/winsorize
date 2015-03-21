@@ -7,6 +7,19 @@
 
 using namespace Rcpp;
 
+// corHuberAdj
+double corHuberAdj(const vec& x, const vec& y, const double& c);
+RcppExport SEXP winsorize_corHuberAdj(SEXP xSEXP, SEXP ySEXP, SEXP cSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const vec& >::type x(xSEXP);
+    Rcpp::traits::input_parameter< const vec& >::type y(ySEXP);
+    Rcpp::traits::input_parameter< const double& >::type c(cSEXP);
+    __result = Rcpp::wrap(corHuberAdj(x, y, c));
+    return __result;
+END_RCPP
+}
 // corHuberBi
 double corHuberBi(const vec& x, const vec& y, const double& c, const double& prob, const double& tol);
 RcppExport SEXP winsorize_corHuberBi(SEXP xSEXP, SEXP ySEXP, SEXP cSEXP, SEXP probSEXP, SEXP tolSEXP) {
