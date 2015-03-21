@@ -148,8 +148,9 @@ SEXP R_corHuberAdj(SEXP R_x, SEXP R_y, SEXP R_c) {
 }
 
 // robust correlation based on bivariate winsorization
+// [[Rcpp::export]]
 double corHuberBi(const vec& x, const vec& y, const double& c,
-		const double& prob, const double& tol) {
+                  const double& prob, const double& tol) {
 	// compute the initial correlation matrix with adjusted winsorization
 	double r0 = corHuberAdj(x, y, c);
 	// C++ isnan() is not portable and gives error on Windows systems
@@ -181,18 +182,18 @@ double corHuberBi(const vec& x, const vec& y, const double& c,
 	return corPearson(xy.col(0), xy.col(1));
 }
 
-// R interface to corHuberBi()
-SEXP R_corHuberBi(SEXP R_x, SEXP R_y, SEXP R_c, SEXP R_prob, SEXP R_tol) {
-	// convert data to Rcpp types
-	NumericVector Rcpp_x(R_x), Rcpp_y(R_y);
-	vec x(Rcpp_x.begin(), Rcpp_x.size(), false);	// reuse memory
-	vec y(Rcpp_y.begin(), Rcpp_y.size(), false);	// reuse memory
-	double c = as<double>(R_c);
-	double prob = as<double>(R_prob);
-	double tol = as<double>(R_tol);
-	// call arma version and wrap result
-	return wrap(corHuberBi(x, y, c, prob, tol));
-}
+// // R interface to corHuberBi()
+// SEXP R_corHuberBi(SEXP R_x, SEXP R_y, SEXP R_c, SEXP R_prob, SEXP R_tol) {
+// 	// convert data to Rcpp types
+// 	NumericVector Rcpp_x(R_x), Rcpp_y(R_y);
+// 	vec x(Rcpp_x.begin(), Rcpp_x.size(), false);	// reuse memory
+// 	vec y(Rcpp_y.begin(), Rcpp_y.size(), false);	// reuse memory
+// 	double c = as<double>(R_c);
+// 	double prob = as<double>(R_prob);
+// 	double tol = as<double>(R_tol);
+// 	// call arma version and wrap result
+// 	return wrap(corHuberBi(x, y, c, prob, tol));
+// }
 
 // robust correlation matrix based on bivariate winsorization
 // [[Rcpp::export]]

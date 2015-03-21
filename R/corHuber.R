@@ -107,7 +107,7 @@ corHuber <- function(x, y, type = c("bivariate", "adjusted", "univariate"),
   }
   ## compute robust correlation according to winsorization type
   switch(type, 
-         bivariate=corHuberBi(x, y, const=const, prob=prob, tol=tol),
+         bivariate=corHuberBi(x, y, const, prob=prob, tol=tol),
          adjusted=corHuberAdj(x, y, const=const),
          univariate=corHuberUni(x, y, const=const))
 }
@@ -115,13 +115,13 @@ corHuber <- function(x, y, type = c("bivariate", "adjusted", "univariate"),
 
 ## the following functions assume that the data are already standardized
 
-# robust correlation based on bivariate winsorization
-corHuberBi <- function(x, y, const = 2, prob = 0.95, 
-                       tol = .Machine$double.eps^0.5) {
-  # call C++ function
-  .Call("R_corHuberBi", R_x=x, R_y=y, R_c=const, R_prob=prob, R_tol=tol, 
-        PACKAGE="winsorize")
-}
+## # robust correlation based on bivariate winsorization
+## corHuberBi <- function(x, y, const = 2, prob = 0.95, 
+##                        tol = .Machine$double.eps^0.5) {
+##   # call C++ function
+##   .Call("R_corHuberBi", R_x=x, R_y=y, R_c=const, R_prob=prob, R_tol=tol, 
+##         PACKAGE="winsorize")
+## }
 
 # robust correlation based on adjusted univariate winsorization
 corHuberAdj <- function(x, y, const = 2) {
