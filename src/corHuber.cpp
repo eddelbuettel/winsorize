@@ -59,6 +59,7 @@ double winsorize(const double& x, const double& cm, const double& cp) {
 }
 
 // robust correlation based on univariate winsorization
+// [[Rcpp::export]]
 double corHuberUni(const vec& x, const vec& y, const double& c) {
 	const double cm = -c;		// negative winsorization constant
 	const uword n = x.n_elem;
@@ -71,16 +72,16 @@ double corHuberUni(const vec& x, const vec& y, const double& c) {
 	return corPearson(wx, wy);
 }
 
-// R interface to corHuberUni()
-SEXP R_corHuberUni(SEXP R_x, SEXP R_y, SEXP R_c) {
-	// convert data to arma types
-	NumericVector Rcpp_x(R_x), Rcpp_y(R_y);
-	vec x(Rcpp_x.begin(), Rcpp_x.size(), false);	// reuse memory
-	vec y(Rcpp_y.begin(), Rcpp_y.size(), false);	// reuse memory
-	double c = as<double>(R_c);
-	// call arma version and wrap result
-	return wrap(corHuberUni(x, y, c));
-}
+// // R interface to corHuberUni()
+// SEXP R_corHuberUni(SEXP R_x, SEXP R_y, SEXP R_c) {
+// 	// convert data to arma types
+// 	NumericVector Rcpp_x(R_x), Rcpp_y(R_y);
+// 	vec x(Rcpp_x.begin(), Rcpp_x.size(), false);	// reuse memory
+// 	vec y(Rcpp_y.begin(), Rcpp_y.size(), false);	// reuse memory
+// 	double c = as<double>(R_c);
+// 	// call arma version and wrap result
+// 	return wrap(corHuberUni(x, y, c));
+// }
 
 // robust correlation based on adjusted univariate winsorization
 // [[Rcpp::export]]

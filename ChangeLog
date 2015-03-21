@@ -2,10 +2,10 @@
 
 	* src/corHuber.cpp: Call corMatHuber(), retire R_corMatHuber; call
 	corHuberBi(), retire R_corHuberBi(); call corHuberAdj(), retire
-	R_corHuberAdj(); 
+	R_corHuberAdj(); call corHuberUni(), retire R_corHuberUni()
 
 	* R/winsorize.R (winsorize.matrix): Call new corMatHuber() directly
-	* R/corHuber.R (corHuber): Call corHuberBi(), corHuberAdj() directly
+	* R/corHuber.R (corHuber): Call corHuberBi, corHuberAdj, corHuberUni
 
 	* src/winsorize_types.h: Added to be auto-included by Rcpp Attributes
 
