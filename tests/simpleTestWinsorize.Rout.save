@@ -1,0 +1,37 @@
+
+R version 3.1.3 (2015-03-09) -- "Smooth Sidewalk"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> library(winsorize)
+> options(digits=6)
+> 
+> ## generate data
+> set.seed(1234)     # for reproducibility
+> x <- rnorm(10)     # standard normal
+> x[1] <- x[1] * 10  # introduce outlier
+> 
+> ## winsorize data
+> x
+ [1] -12.070657   0.277429   1.084441  -2.345698   0.429125   0.506056
+ [7]  -0.574740  -0.546632  -0.564452  -0.890038
+> winsorize(x)
+ [1] -3.250372  0.277429  1.084441 -2.345698  0.429125  0.506056 -0.574740
+ [8] -0.546632 -0.564452 -0.890038
+> 
+> proc.time()
+   user  system elapsed 
+  0.403   0.025   0.412 

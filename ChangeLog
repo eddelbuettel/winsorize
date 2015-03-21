@@ -1,3 +1,8 @@
+2015-03-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/simpleTestWinsorize.R: Added simple test for winsorize
+	* tests/simpleTestWinsorize.Rout.save: Added reference output
+
 2015-03-19  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Version 0.0.1 based on robustHD 0.5.0
