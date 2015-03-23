@@ -1,5 +1,7 @@
 2015-03-23  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION: Version 0.0.2 
+
 	* src/corHuber.cpp: Remove commented-out interface code no longer
 	needed due to Rcpp Attributes interface generation
 	* R/corHuber.R: Idem

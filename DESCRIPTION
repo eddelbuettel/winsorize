@@ -1,9 +1,9 @@
 Package: winsorize
 Type: Package
 Title: Winsorize Data 
-Version: 0.0.1
-Date: 2015-03-18
-Author: Andreas Alfons, Dirk Eddelbuettel
+Version: 0.0.2
+Date: 2015-03-23
+Author: Andreas Alfons and Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Description: Remove outliers by means of winsorization, ie shrinking outlying
  observations to the border of the main part of the data. This package started
