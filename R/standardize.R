@@ -1,3 +1,7 @@
+
+## This file is part of the winsorize package by Alfons and Eddelbuettel
+## and initially copied from the robustHD package by Andreas Alfons.
+
 # ------------------------------------
 # Author: Andreas Alfons
 #         Erasmus University Rotterdam
