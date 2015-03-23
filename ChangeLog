@@ -1,3 +1,9 @@
+2015-03-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/corHuber.cpp: Remove commented-out interface code no longer
+	needed due to Rcpp Attributes interface generation
+	* R/corHuber.R: Idem
+
 2015-03-21  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/corHuber.cpp: Call corMatHuber(), retire R_corMatHuber; call
