@@ -8,7 +8,7 @@ Outlier removal by winsorization
 ### Status
 
 The package is spun-off the excellent
-[robustHD](http://cran.rstudio.com/package=robustHD) package in order to
+[robustHD](https://cran.rstudio.com/package=robustHD) package in order to
 provide a smaller winsorization package with fewer dependencies.
 
 ### Authors
