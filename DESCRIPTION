@@ -3,8 +3,10 @@ Type: Package
 Title: Winsorize Data 
 Version: 0.0.2.1
 Date: 2019-05-25
-Author: Andreas Alfons and Dirk Eddelbuettel
-Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Authors@R: c(person("Andreas", "Alfons", role = "aut",
+                    comment = c(ORCID = "0000-0002-2513-3788")),
+             person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org",
+                    comment = c(ORCID = "0000-0001-6419-907X")))
 Description: Remove outliers by means of winsorization, ie shrinking outlying
  observations to the border of the main part of the data. This package started
  from the excellent robustHD package by Andreas Alfons in order to reduce the
